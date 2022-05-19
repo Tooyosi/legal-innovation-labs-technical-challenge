@@ -20,7 +20,7 @@ module.exports = {
       lastName: "",
       email: "admin@blog.com",
       password: bin2hashData("password", process.env.PASSWORD_HASH),
-      isAdmin: false,
+      isAdmin: true,
       blocked: false,
       createdAt: new Date(),
       updatedAt: new Date()

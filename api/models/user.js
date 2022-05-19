@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     blocked: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'user',
   });
   return User;
 };
