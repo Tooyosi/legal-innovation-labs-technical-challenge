@@ -7,5 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oyegoke Oluwatoyosi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "passport": "^0.5.3",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.19.2",
+    "winston": "^3.7.2"
+  }
 }
