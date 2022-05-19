@@ -10,7 +10,7 @@ const Response = require('./helpers/ResponseClass');
 // general error handling
 app.use((err, req, res, next) => {
     if (err) {
-        let response = new Response(failedStatus, errorStatus, failureCode, "An error occured")
+        const response = new Response(failedStatus, errorStatus, failureCode, "An error occured");
         return res.status(500).send(response)
     }
 });
