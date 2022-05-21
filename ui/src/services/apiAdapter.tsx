@@ -6,7 +6,7 @@ const AxiosInstance = axios.create({
 
 function setToken(config: any, idToken = '') {
   if (idToken && idToken !== "") {
-    config.headers.common['Authorization'] = `${idToken}`
+    config.headers.common['Authorization'] = `Bearer ${idToken}`
   };
 }
 

@@ -38,10 +38,12 @@ app.get('/swagger.json', function (req, res) {
 // import routes
 const authRoutes = require('./routes/Auth');
 const postRoutes = require('./routes/Post');
+const userRoutes = require('./routes/User');
 
 // use routes
 app.use('/auth', authRoutes)
 app.use('/post', postRoutes)
+app.use('/user', userRoutes)
 
 app.get("*", (req, res) => {
     return res.redirect("/api-docs")
