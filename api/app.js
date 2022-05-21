@@ -1,13 +1,14 @@
 const express = require("express");
-const { failedStatus, errorStatus, failureCode } = require("./helpers");
+const cors = require('cors');
 const app = express();
-
+const { failedStatus, errorStatus, failureCode } = require("./helpers");
 
 require("dotenv").config();
 const port = process.env.PORT || 4000;
 const passport = require('passport');
 const Response = require('./helpers/ResponseClass');
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
