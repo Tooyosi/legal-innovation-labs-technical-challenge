@@ -5,13 +5,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Col, Container, Row } from 'reactstrap'
 
-type PostType = {
-    id: number,
+export type PostType = {
+    id?: number | string,
     title: string,
     body: string,
-    createdAt: string,
-    updatedAt: string,
-    userId: string,
+    createdAt?: string,
+    updatedAt?: string,
+    userId?: string,
     user?: UserType
 }
 const LatestPosts: React.FC<any> = ({ data }) => {
@@ -23,12 +23,13 @@ const LatestPosts: React.FC<any> = ({ data }) => {
                         {data.map((post: PostType) => (
                             <div key={post.id} className="post">
                                 <Post
-                                    title={post.title}
-                                    createdAt={post.createdAt}
+                                    {...post}
                                     body={handleTextLength(post.body, 100)}
                                     user={post.user}
                                 />
-                                <Link to={`/post/${post.id}`}>Read More &gt;&gt;</Link>
+                                <div className="mt-3">
+                                <Link to={`/post/${post.id}/view`}>Read More &gt;&gt;</Link>
+                                </div>
 
                             </div>
                         ))}

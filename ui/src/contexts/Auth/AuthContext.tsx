@@ -5,15 +5,15 @@ type AuthCtx = {
   setUser: (param?: any) => void
 }
 export type UserType = {
-  isLoggedIn: boolean
-  id: number,
+  isLoggedIn?: boolean
+  id?: number,
   firstName: string,
   lastName: string,
   email: string,
-  isAdmin: boolean,
-  blocked: boolean,
-  createdAt: string,
-  updatedAt: string,
+  isAdmin?: boolean,
+  blocked?: boolean,
+  createdAt?: string,
+  updatedAt?: string,
 };
 
 const defaultUser = {

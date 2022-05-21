@@ -75,7 +75,7 @@ const { authenticate, protected } = require('../../middleware');
 *       400:
 *         description: Bad Request.
 */
-router.get('/', authenticate, protected, PostController.getPosts)
+router.get('/',  PostController.getPosts)
 
 
 /**
@@ -129,7 +129,7 @@ router.post('/', authenticate, protected, PostController.addPost)
 *       400:
 *         description: Bad Request.
 */
-router.get('/:id', authenticate, protected, PostController.getPost)
+router.get('/:id',  PostController.getPost)
 
 
 

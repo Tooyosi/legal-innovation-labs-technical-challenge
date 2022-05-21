@@ -8,7 +8,7 @@ import Form from './Form';
 function Signup() {
     const handleSubmit = async (values: SignupPayload) => {
         try {
-            const { data: { data } } = await signup(values)
+            const { data } = await signup(values)
             toast.success(data.description)
             window.location.href = "/auth/login"
         } catch (error) {

@@ -1,7 +1,8 @@
 import Loader from 'components/Loader/Loader';
 import { AuthContext } from 'contexts/Auth/AuthContext';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { getUser, handleLogout } from 'services/userService';
+import { handleLogout } from 'services/authService';
+import { getUser } from 'services/userService';
 
 export const AuthGuard: React.FC<any> = (props) => {
     const [loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ export const AuthGuard: React.FC<any> = (props) => {
                 }
             })
         } catch (error) {
-            if(!allowedRoutes.includes(window.location.pathname)){
+            if(!allowedRoutes.includes(window.location.pathname) && !window.location.pathname.includes('/view')){
                 handleLogout()
             }
         } finally{

@@ -5,11 +5,13 @@ import {
     NavbarToggler,
     Nav,
     NavItem,
-    Container
+    Container,
+    Button
 } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './header.scss';
 import { AuthContext } from 'contexts/Auth/AuthContext';
+import { handleLogout } from 'services/authService';
 
 const Header = ({ ...props }: any) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +37,9 @@ const Header = ({ ...props }: any) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto mt-md-0 mt-3 align-items-center" navbar>
                         {[{
-                            name: 'Posts',
-                            link: '/posts',
-                            useAuthentication: false,
+                            name: 'Add Post',
+                            link: '/post',
+                            useAuthentication: true,
                         }, {
                             name: 'Profile',
                             link: '/profile',
@@ -47,13 +49,16 @@ const Header = ({ ...props }: any) => {
                                 <Link className={`${getActiveClassName(`${route.link}`)} nav-link mx-3 my-md-0 my-2 text-darkBlue`} to={route.link}>{route.name}</Link>
                             </NavItem>
                         ))}
-                        {!user.isLoggedIn && <>
+                        {!user.isLoggedIn?  <>
                             <NavItem className={`${getActiveClassName('/auth/login')}`}>
                                 <Link className="btn btn-light btn-block my-md-0 my-3 py-md-2 py-2 text-darkBlue" to="/auth/login">Login</Link>
                             </NavItem>
                             <NavItem className={`${getActiveClassName('/')}`}>
                                 <Link to="/auth/signup" className=" btn btn-warning btn-block my-md-0 my-3 py-md-2 py-2 ml-0 ml-md-3" >Sign Up</Link>
-                            </NavItem></>}
+                            </NavItem></>: 
+                            <NavItem >
+                            <Button className="btn btn-light btn-block my-md-0 my-3 py-md-2 py-2 text-darkBlue" onClick={()=> handleLogout()}>Logout</Button>
+                        </NavItem>}
                     </Nav>
                 </Collapse>
             </Container>

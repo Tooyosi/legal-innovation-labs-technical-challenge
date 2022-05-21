@@ -56,7 +56,7 @@ module.exports = {
                 include: {
                     model: user,
                     as: 'user',
-                    attributes: ['firstName', 'lastName', 'email']
+                    attributes: ['id', 'firstName', 'lastName', 'email']
                 },
                 offset: offset ? Number(offset) : offset,
                 limit: limit ? Number(limit) : 10,
@@ -78,7 +78,7 @@ module.exports = {
                 include: {
                     model: user,
                     as: 'user',
-                    attributes: ['firstName', 'lastName', 'email']
+                    attributes: ['id', 'firstName', 'lastName', 'email']
                 }
             }, res)
         } catch (error) {
