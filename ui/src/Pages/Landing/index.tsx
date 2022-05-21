@@ -18,6 +18,14 @@ export const Landing: React.FC<any> = () => {
     const getAllPosts = useCallback(async (pageNo = 1) => {
         try {
             const offset = pageNo === 1 ? 0 : pageNo * state.limit;
+            if(offset === 0){
+                setState((prev) => {
+                    return {
+                        ...prev,
+                        loading: true
+                    }
+                })
+            }
             let { data: { data } } = await getPosts(state.limit, offset)
             setState((prev) => {
                 const newData = pageNo === 1 ? data.rows : prev.data.concat(data.rows)
@@ -44,6 +52,7 @@ export const Landing: React.FC<any> = () => {
             {state.loading ? <Loader /> :
                 <LatestPosts
                     data={state.data}
+                    getAllPosts={getAllPosts}
                 />
             }
         </div>

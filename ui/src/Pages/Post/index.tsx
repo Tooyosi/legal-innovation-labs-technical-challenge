@@ -3,10 +3,23 @@ import { Col, Container, Row } from 'reactstrap'
 import PostView from 'components/commons/Post'
 import Loader from 'components/Loader/Loader';
 import { useFetchPost } from './Post.hooks';
+import { deletePost } from 'services/postService';
+import { toast } from 'react-toastify';
+import { apiErrorHandler } from 'Helpers/utility';
 
 const Post: React.FC<any> = () => {
 
-    const {post} = useFetchPost()
+    const { post, id, handleGoBack } = useFetchPost();
+
+    const handleDelete = async () => {
+        try {
+            let { data } = await deletePost(id as string);
+            toast.success(data.description);
+            setTimeout(handleGoBack, 5)
+        } catch (error) {
+            apiErrorHandler(error);
+        }
+    }
 
     return (
         <Container>
@@ -17,6 +30,7 @@ const Post: React.FC<any> = () => {
                             <div>
                                 <PostView
                                     {...post}
+                                    handleDelete={handleDelete}
                                 />
                                 <p className="text-right"></p>
                             </div>

@@ -1,9 +1,11 @@
 import Post from 'components/commons/Post'
 import { UserType } from 'contexts/Auth/AuthContext'
-import { handleTextLength } from 'Helpers/utility'
+import { apiErrorHandler, handleTextLength } from 'Helpers/utility'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { Col, Container, Row } from 'reactstrap'
+import { deletePost } from 'services/postService'
 
 export type PostType = {
     id?: number | string,
@@ -14,7 +16,17 @@ export type PostType = {
     userId?: string,
     user?: UserType
 }
-const LatestPosts: React.FC<any> = ({ data }) => {
+const LatestPosts: React.FC<any> = ({ data, getAllPosts }) => {
+
+    const handleDelete = async (id: string) => {
+        try {
+            let {data} = await deletePost(id);
+            toast.success(data.description);
+            getAllPosts(1)
+        } catch (error) {
+            apiErrorHandler(error);
+        }
+    }
     return (
         <Container>
             <Row>
@@ -24,11 +36,12 @@ const LatestPosts: React.FC<any> = ({ data }) => {
                             <div key={post.id} className="post">
                                 <Post
                                     {...post}
+                                    handleDelete={handleDelete}
                                     body={handleTextLength(post.body, 100)}
                                     user={post.user}
                                 />
                                 <div className="mt-3">
-                                <Link to={`/post/${post.id}/view`}>Read More &gt;&gt;</Link>
+                                    <Link to={`/post/${post.id}/view`}>Read More &gt;&gt;</Link>
                                 </div>
 
                             </div>

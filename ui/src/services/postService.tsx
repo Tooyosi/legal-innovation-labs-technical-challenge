@@ -8,3 +8,5 @@ export const getPost = (id:string) => axios.get(`/post/${id}`);
 export const editPost = (id:string, data: PostType) => axios.patch(`/post/${id}`, data);
 
 export const addPost = (data: PostType) => axios.post(`/post`, data);
+
+export const deletePost = (id:string) => axios.delete(`/post/${id}`);

@@ -8,7 +8,8 @@ type ButtonProps = {
     color?: string,
     type?: "submit" | "reset" | "button" | undefined,
     block?: boolean,
-    className?: string
+    className?: string,
+    onClick?: (param?:any)=> any
 }
 const ButtonComponent: React.FC<ButtonProps> = (props) => {
     return (

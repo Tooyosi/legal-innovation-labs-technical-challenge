@@ -47,5 +47,5 @@ export const useFetchPost = () => {
     }, [fetchPost])
 
 
-    return { id: id, post: state, fetchPost: fetchPost }
+    return { id: id, post: state, fetchPost: fetchPost, handleGoBack: handleGoBack }
 }

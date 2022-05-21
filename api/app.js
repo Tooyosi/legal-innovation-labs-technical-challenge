@@ -22,7 +22,6 @@ const specs = require('./swagger/index')
 // general error handling
 app.use((err, req, res, next) => {
     if (err) {
-        console.log(err)
         const response = new Response(failedStatus, errorStatus, failureCode, "An error occured");
         return res.status(500).send(response)
     }
