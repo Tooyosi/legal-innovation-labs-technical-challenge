@@ -1,11 +1,9 @@
 import { apiErrorHandler } from 'Helpers/utility';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from 'reactstrap';
 import { setAccessToken } from 'services/apiAdapter';
 import { login, LoginPayload } from 'services/authService';
 import Form from './Form';
-import "./_login.scss"
 
 function Login() {
     const handleSubmit = async(values:LoginPayload)=>{
