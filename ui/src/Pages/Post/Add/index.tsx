@@ -1,14 +1,14 @@
 import { apiErrorHandler } from 'Helpers/utility';
+import AuthLayout from 'layout/Auth/AuthLayout';
 import { PostType } from 'Pages/Landing/LatestPosts';
 import React from 'react'
 import { toast } from 'react-toastify';
-import { Col, Container, Row } from 'reactstrap';
 import { addPost } from 'services/postService';
 import Form from '../Form/Form';
 
 const AddPost = () => {
 
-    const handleSubmit = async (values: PostType, {resetForm}:any) => {
+    const handleSubmit = async (values: PostType, { resetForm }: any) => {
         try {
             let { data } = await addPost(values)
             resetForm({})
@@ -17,18 +17,13 @@ const AddPost = () => {
             apiErrorHandler(error)
         }
     }
-    
-    return (
-        <Container>
-            <Row>
-                <Col md="6" className='m-auto'>
-                    <h3>Add Blog Post</h3>
-                    <Form
-                        onSubmit={handleSubmit} />
 
-                </Col>
-            </Row>
-        </Container>
+    return (
+        <AuthLayout>
+            <h3>Add Blog Post</h3>
+            <Form
+                onSubmit={handleSubmit} />
+        </AuthLayout>
     )
 }
 

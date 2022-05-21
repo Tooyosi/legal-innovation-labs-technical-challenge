@@ -1,9 +1,9 @@
 import Loader from 'components/Loader/Loader';
 import { apiErrorHandler } from 'Helpers/utility';
+import AuthLayout from 'layout/Auth/AuthLayout';
 import { PostType } from 'Pages/Landing/LatestPosts';
 import React from 'react'
 import { toast } from 'react-toastify';
-import { Col, Container, Row } from 'reactstrap';
 import { editPost } from 'services/postService';
 import Form from '../Form/Form';
 import { useFetchPost } from '../Post.hooks';
@@ -20,18 +20,14 @@ const EditPost = () => {
         }
     }
     return (
-        <Container>
-            <Row>
-                <Col md="6" className='m-auto'>
-                    {post.loading ? <Loader /> :
-                        <>
-                            <h3>Edit {post.title}</h3>
-                            <Form onSubmit={handleSubmit} initialValues={{ title: post.title, body: post.body }} />
-                        </>
-                    }
-                </Col>
-            </Row>
-        </Container>
+        <AuthLayout>
+            {post.loading ? <Loader /> :
+                <>
+                    <h3>Edit {post.title}</h3>
+                    <Form onSubmit={handleSubmit} initialValues={{ title: post.title, body: post.body }} />
+                </>
+            }
+        </AuthLayout>
     )
 }
 

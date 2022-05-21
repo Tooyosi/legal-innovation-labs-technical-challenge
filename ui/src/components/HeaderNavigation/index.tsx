@@ -42,7 +42,7 @@ const Header = ({ ...props }: any) => {
                             useAuthentication: true,
                         }, {
                             name: 'Profile',
-                            link: '/profile',
+                            link: '/me',
                             useAuthentication: true,
                         }].map((route) => (
                             <NavItem key={route.link} className={`${route.useAuthentication && !user.isLoggedIn ? "d-none" : ""}`}>
