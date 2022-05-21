@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Post.belongsTo(models.user, {
         foreignKey: {
-          field: 'createdBy',
+          field: 'userId',
           allowNull: false,
         },
         onDelete: 'cascade',
@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init({
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
-    createdBy: DataTypes.INTEGER
+    body: DataTypes.TEXT('long'),
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'post',

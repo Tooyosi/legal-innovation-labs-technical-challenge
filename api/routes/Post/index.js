@@ -54,7 +54,7 @@ const { authenticate, protected } = require('../../middleware');
 *         description: Post date created.
 *         schema:
 *           type : string
-*       - name: createdBy
+*       - name: userId
 *         in: query
 *         description: Post author.
 *         schema:

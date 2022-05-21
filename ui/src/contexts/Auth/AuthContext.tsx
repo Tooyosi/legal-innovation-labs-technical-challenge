@@ -4,7 +4,7 @@ type AuthCtx = {
   user: UserType,
   setUser: (param?: any) => void
 }
-type UserType = {
+export type UserType = {
   isLoggedIn: boolean
   id: number,
   firstName: string,

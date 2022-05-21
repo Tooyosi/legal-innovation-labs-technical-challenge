@@ -15,7 +15,7 @@ module.exports = {
             await dbHelper.createNewInstance("post", {
                 title: title,
                 body: body,
-                createdBy: req.user.id,
+                userId: req.user.id
             }, res)
         } catch (error) {
             dbErrorHandler(error, res)
@@ -33,7 +33,7 @@ module.exports = {
             await dbHelper.editInstance("post", {
                 where: {
                     id: id,
-                    createdBy: req.user.id
+                    userId: req.user.id
                 }
             }, {
                 ...editObj
@@ -44,12 +44,12 @@ module.exports = {
     }),
 
     getPosts: ('/', async (req, res) => {
-        let { title, createdAt, createdBy, offset, limit } = req.query
+        let { title, createdAt, userId, offset, limit } = req.query
         let whereObj = {}
 
         addToObject("title", title, whereObj)
         addToObject("createdAt", createdAt, whereObj)
-        addToObject("createdBy", createdBy, whereObj)
+        addToObject("userId", userId, whereObj)
         try {
             await dbHelper.getPaginatedInstance("post", {
                 where: whereObj,
@@ -74,6 +74,11 @@ module.exports = {
             await dbHelper.getSingleInstance("post", {
                 where: {
                     id: id
+                },
+                include: {
+                    model: user,
+                    as: 'user',
+                    attributes: ['firstName', 'lastName', 'email']
                 }
             }, res)
         } catch (error) {
@@ -89,7 +94,7 @@ module.exports = {
             await dbHelper.deleteInstance("post", {
                 where: {
                     id: id,
-                    createdBy: req.user.id
+                    userId: req.user.id
                 }
             }, res)
 

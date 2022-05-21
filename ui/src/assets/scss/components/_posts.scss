@@ -1,0 +1,9 @@
+.posts{
+    height: 85vh !important;
+    overflow: auto;
+    border: 1px solid ;
+    padding: 20px;
+    .post{
+        border-bottom: 1px solid #eeeeee;
+    }
+}

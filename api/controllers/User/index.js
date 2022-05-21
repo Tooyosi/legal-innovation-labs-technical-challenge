@@ -1,6 +1,4 @@
-const { failedStatus, failureCode,  bin2hashData,  isValueEmpty, isEmailValid, dbErrorHandler } = require('../../helpers')
-const Response = require("../../helpers/ResponseClass")
-const { logger } = require('../../loggers/logger')
+const { dbErrorHandler } = require('../../helpers')
 const DbHelpers = require("../../helpers/DbHelpers")
 let dbHelper = new DbHelpers()
 
@@ -11,7 +9,7 @@ module.exports = {
                 where: {
                     id: req.user.id,
                 },
-                attributes: {exclude: ['password']},
+                attributes: { exclude: ['password'] },
             }, res)
         } catch (error) {
             dbErrorHandler(error)

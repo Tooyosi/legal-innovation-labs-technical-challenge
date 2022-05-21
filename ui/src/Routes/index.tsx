@@ -4,6 +4,7 @@ import AuthLayout from "layout/Auth/AuthLayout";
 import Signup from "Pages/Auth/Signup";
 import { Landing } from "Pages/Landing";
 import BaseLayout from "layout/Auth/BaseLayout";
+import Post from "Pages/Post";
 
 const DynamicRouting = (Layout: React.FC<any>, Component: React.FC<any>, path: string) =>
     <Route path={path} element={
@@ -18,6 +19,7 @@ const AppRoutes = () => {
             <Routes>
                 {DynamicRouting(AuthLayout, Login, "/auth/login")}
                 {DynamicRouting(AuthLayout, Signup, "/auth/signup")}
+                {DynamicRouting(BaseLayout, Post, "/post/:id")}
                 {DynamicRouting(BaseLayout, Landing, "/")}
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>

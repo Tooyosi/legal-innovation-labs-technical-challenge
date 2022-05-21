@@ -12,9 +12,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       body: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT('long')
       },
-      createdBy: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'users',

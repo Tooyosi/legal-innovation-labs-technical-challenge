@@ -6,7 +6,9 @@ const BaseLayout: React.FC<any> = ({ children }) => {
     return (
         <AuthGuard>
             <Header />
-            {children}
+            <div className='mt-5 pt-3'>
+                {children}
+            </div>
         </AuthGuard>
     )
 }
