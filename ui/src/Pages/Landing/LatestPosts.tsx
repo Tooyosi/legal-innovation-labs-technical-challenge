@@ -32,7 +32,8 @@ const LatestPosts: React.FC<any> = ({ data, getAllPosts }) => {
             <Row>
                 <Col md="12">
                     <div className="posts mt-3">
-                        {data.map((post: PostType) => (
+                        {data.length === 0 && <h4>No New Post(s)</h4>}
+                        {data.length > 0 && data.map((post: PostType) => (
                             <div key={post.id} className="post">
                                 <Post
                                     {...post}

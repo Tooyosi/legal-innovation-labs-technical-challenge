@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL
+  baseURL: process.env.NODE_ENV as string === "development"? process.env.REACT_APP_BASE_URL: '/'
 });
 
 function setToken(config: any, idToken = '') {

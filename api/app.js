@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const { failedStatus, errorStatus, failureCode } = require("./helpers");
+const path = require('path');
 
 require("dotenv").config();
 const port = process.env.PORT || 4000;
@@ -34,6 +35,9 @@ app.get('/swagger.json', function (req, res) {
     res.send(specs);
 });
 
+// serve static frontend app
+app.use(express.static(path.resolve(__dirname, '../ui/build')));
+
 // import routes
 const authRoutes = require('./routes/Auth');
 const postRoutes = require('./routes/Post');
@@ -44,9 +48,14 @@ app.use('/auth', authRoutes)
 app.use('/post', postRoutes)
 app.use('/user', userRoutes)
 
-app.get("*", (req, res) => {
+app.get("/swagger", (req, res) => {
     return res.redirect("/api-docs")
 })
+
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../ui/build', 'index.html'));
+  });
 
 app.listen(port, () => {
     console.log(`App is running on http://${process.env.IP}:${port}`)

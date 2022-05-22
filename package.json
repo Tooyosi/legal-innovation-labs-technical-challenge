@@ -1,0 +1,22 @@
+{
+  "name": "legal-innovation-labs-technical-challenge",
+  "version": "1.0.0",
+  "description": "Application folder for blog app",
+  "main": "/api/server.js",
+  "scripts": {
+    "build": "cd ui && npx react-scripts build",
+    "start-ui": "cd ui && npx react-scripts start",
+    "start": "cd api && node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tooyosi/legal-innovation-labs-technical-challenge.git"
+  },
+  "author": "Oyegoke Oluwatoyosi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tooyosi/legal-innovation-labs-technical-challenge/issues"
+  },
+  "homepage": "https://github.com/Tooyosi/legal-innovation-labs-technical-challenge#readme"
+}
