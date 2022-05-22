@@ -4,7 +4,7 @@
   "description": "Application folder for blog app",
   "main": "/api/server.js",
   "scripts": {
-    "build": "cd ui && && npm install && npx react-scripts build",
+    "build": "cd ui && npm install && npx react-scripts build",
     "start-ui": "cd ui && npm install && npx react-scripts start",
     "start": "cd api && npm install && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
