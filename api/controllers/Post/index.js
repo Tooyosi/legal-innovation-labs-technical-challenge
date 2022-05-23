@@ -1,8 +1,6 @@
 const { user } = require("../../models/index");
 const { isValueEmpty, addToObject, dbErrorHandler } = require("../../helpers")
 const DbHelpers = require("../../helpers/DbHelpers");
-const Response = require("../../helpers/ResponseClass");
-const { logger } = require("../../loggers/logger");
 
 let dbHelper = new DbHelpers();
 
