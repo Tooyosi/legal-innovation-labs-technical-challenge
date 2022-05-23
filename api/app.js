@@ -4,7 +4,6 @@ const app = express();
 const { failedStatus, errorStatus, failureCode } = require("./helpers");
 const path = require('path');
 
-// require("dotenv").config();
 const port = process.env.PORT;
 const passport = require('passport');
 const Response = require('./helpers/ResponseClass');
