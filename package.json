@@ -4,12 +4,13 @@
   "description": "Application folder for blog app",
   "main": "/api/server.js",
   "scripts": {
-    "build": "cd ui && npm install && npx react-scripts build",
+    "build-ui": "cd ui && npm install && npx react-scripts build",
     "build-api": "cd api && npm install",
+    "setup-db": "cd api && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start-ui": "cd ui && npm install && npx react-scripts start",
     "start": "node ./api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run build && npm run build-api"
+    "heroku-postbuild": "npm run build-ui && npm run build-api"
   },
   "engines": {
     "node": "14.9"

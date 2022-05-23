@@ -1,7 +1,7 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 
 const options = {
-  apis: ['./routes/**/*.js'],
+  apis: [`${__dirname.replace(/swagger/g, "")}routes/**/*.js`],
   basePath: '/',
   host: `${process.env.IP}:${process.env.PORT}`,
   schemes: ['http', 'https'],
