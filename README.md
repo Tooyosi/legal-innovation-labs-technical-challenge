@@ -8,7 +8,7 @@ Api Documentation can be viewed [here](https://legal-innovation-labs-test.heroku
 
 ![Ui Screenshot](https://github.com/Tooyosi/legal-innovation-labs-technical-challenge/blob/main/screenshot.png?raw=true)
 
-![Api Screenshot](https://github.com/Tooyosi/legal-innovation-labs-technical-challenge/blob/main/apiscreenshot.png?raw=true)
+![Api Screenshot](https://github.com/Tooyosi/legal-innovation-labs-technical-challenge/blob/main/api-screenshot.png?raw=true)
 
 ## Requirements
 node js version 14.9
