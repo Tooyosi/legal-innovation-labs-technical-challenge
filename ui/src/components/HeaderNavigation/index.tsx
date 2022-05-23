@@ -38,7 +38,7 @@ const Header = ({ ...props }: any) => {
                     <Nav className="ml-auto mt-md-0 mt-3 align-items-center" navbar>
                         {[{
                             name: 'Add Post',
-                            link: '/post',
+                            link: '/add-post',
                             useAuthentication: true,
                         }, {
                             name: 'Profile',

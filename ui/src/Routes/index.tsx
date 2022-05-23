@@ -24,7 +24,7 @@ const AppRoutes = () => {
                 {DynamicRouting(AuthLayout, Signup, "/auth/signup")}
                 {DynamicRouting(BaseLayout, EditPost, "/post/:id/edit")}
                 {DynamicRouting(BaseLayout, Post, "/post/:id/view")}
-                {DynamicRouting(BaseLayout, AddPost, "/post")}
+                {DynamicRouting(BaseLayout, AddPost, "/add-post")}
                 {DynamicRouting(BaseLayout, Profile, "/me")}
                 {DynamicRouting(BaseLayout, Landing, "/")}
                 <Route path="*" element={<Navigate to="/" />} />

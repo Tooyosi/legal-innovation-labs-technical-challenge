@@ -5,10 +5,11 @@
   "main": "/api/server.js",
   "scripts": {
     "build": "cd ui && npm install && npx react-scripts build",
+    "build-api": "cd api && npm install",
     "start-ui": "cd ui && npm install && npx react-scripts start",
-    "start": "cd api && npm install && node app.js",
+    "start": "node api/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build && npm run build-api"
   },
   "engines": {
     "node": "14.9"
