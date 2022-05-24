@@ -1,6 +1,6 @@
 # Blog Spot
 
-Blog Spot is a Blog application which allows users Create, Read, Edit and Delete Blog posts.
+Blog Spot is a Blog application built with React and Node js which allows users Create, Read, Edit and Delete Blog posts.
 
 A live version of the app can be viewed [here](https://legal-innovation-labs-test.herokuapp.com)
 
