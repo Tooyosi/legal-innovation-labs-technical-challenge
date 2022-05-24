@@ -2,7 +2,7 @@
 
 Blog Spot is a Blog application which allows users Create, Read, Edit and Delete Blog posts.
 
-A live version of the app can be viewed [here](https://www.legal-innovation-labs-test.herokuapp.com)
+A live version of the app can be viewed [here](https://legal-innovation-labs-test.herokuapp.com)
 
 Api Documentation can be viewed [here](https://legal-innovation-labs-test.herokuapp.com/api-docs/)
 
